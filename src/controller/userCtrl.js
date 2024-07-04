@@ -150,26 +150,7 @@ const userCtrl = {
             res.status(503).send({message: error.message})
         }
     },
-    searchUsers: async (req,res) => {
-        try {
-            const {text}=req.query
-
-            const key = new RegExp(text,"i")
-    
-            const search = await Users.find({
-                $or: [{name: { $regex: key}}]
-            })
-            if(!search){
-                return res.status(404).send({message:`${text} sorovingiz boyicha hch km topilmadi`,search})
-
-            }
-    
-            return res.status(200).send({message:`${text} boyicha qdruv natijasi`,search})
-        } catch (error) {
-            res.status(503).send({message: error.message})
-        }
-    },
-
+ 
     
 }
 
