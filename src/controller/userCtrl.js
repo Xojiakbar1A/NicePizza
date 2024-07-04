@@ -85,7 +85,7 @@ const userCtrl = {
     updateUser: async (req,res) => {
         try {
             const {id}= req.params
-            if(id === req.user._id|| req.isAdmin){
+            if(id === req.user._id||req.user.isAdmin){
                 const user = await Users.findById(id)
 
                 if(!user){
@@ -113,7 +113,7 @@ const userCtrl = {
     deleteUser: async (req,res) => {
         try {
             const {id} = req.params
-            if(id === req.user._id|| req.isAdmin){
+            if(id === req.user._id|| req.user.isAdmin){
                 const user = await Users.findById(id)
 
                 if(!user){
