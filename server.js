@@ -15,6 +15,9 @@ const app = express();
 
 const PORT = process.env.PORT || 4003;
 
+//router ulash
+
+const userRouter = require('./src/router/userRouter')
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -27,6 +30,8 @@ app.get('/', (req, res ) => {
     res.send("Home")
     
 })
+//router ishlatish
+app.use('/user',userRouter);
 
 
 const MONGO_URL = process.env.MONGO_URL;
