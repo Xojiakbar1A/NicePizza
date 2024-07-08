@@ -22,9 +22,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    year: {
-        type:String,
-        required:true
+    briyhdayDay: {
+        type:Date,
+        default: ''
     }
 },
 {
