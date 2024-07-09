@@ -26,6 +26,7 @@ cloudinary.config({
 
 const userRouter = require('./src/router/userRouter')
 const foodRouter = require('./src/router/foodRouter')
+const kategotyRouter = require('./src/router/kategoryRouter')
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -41,6 +42,7 @@ app.get('/', (req, res ) => {
 //router ishlatish
 app.use('/user',userRouter);
 app.use('/food',foodRouter);
+app.use('/kategory',kategotyRouter);
 
 
 const MONGO_URL = process.env.MONGO_URL;

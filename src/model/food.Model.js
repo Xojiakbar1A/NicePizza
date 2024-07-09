@@ -17,10 +17,9 @@ const foodSchema = new mongoose.Schema({
         type: Object,
         default: {},
     },
-    kategory:{
-        type: String,
-        required: true,
-        enum: ["pitsa",'sushi',"zakuski", "desert","napitki","cousi"]
+    kategoryId:{
+        type: Object,
+        required: true
     }
 },
 {
