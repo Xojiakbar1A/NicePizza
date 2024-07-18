@@ -86,20 +86,22 @@ addKategory: async (req,res) => {
                     })
                    const kategor = await Kategory.findByIdAndDelete(id)
                 //    ovqatlarni o'chirish
-                const food = await Food.findById(id)
-                    // if(food){
-                    //     let public_id = food.foodImg.public_id
-                    //     await cloudinary.v2.uploader.destroy(public_id,async (err) => {
-                    //         if(err){
-                    //          throw err
-                    //         }
-                    //     })
-                    //     const fod = await Food.findByIdAndDelete(id)
-                    //      res.status(200).send({message: "succes deleted food",food})
-                    // }else {
-                    //     res.status(404).send({message: "food not found"})
-                    // }
-                   return res.status(200).send({message: "succes deleted kategory",kategor})
+                const foods = await Food.find({kategoryId: id})
+                    if(foods.length > 0){
+                       foods.map(async(foods)=>{
+                        let public_id = foods.foodImg.public_id
+                        let deletImg = await cloudinary.v2.uploader.destroy(public_id,async (err) => {
+                            if(err){
+                             throw err
+                            }
+                        })
+                        })
+
+                    }else {
+                        res.status(404).send({message: "food not found"})
+                    }
+                const food = await Food.deleteMany({kategoryId: id})
+                   return res.status(200).send({message: "succes deleted kategory",kategor,food})
                 }else {
                     return res.status(404).send({message: "kategory not found"})
                 }

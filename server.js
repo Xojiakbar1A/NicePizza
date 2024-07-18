@@ -26,6 +26,7 @@ cloudinary.config({
 
 const userRouter = require('./src/router/userRouter')
 const foodRouter = require('./src/router/foodRouter')
+const orderRouter = require('./src/router/orderRouter')
 const kategotyRouter = require('./src/router/kategoryRouter')
 
 app.use(express.json())
@@ -42,6 +43,7 @@ app.get('/', (req, res ) => {
 //router ishlatish
 app.use('/user',userRouter);
 app.use('/food',foodRouter);
+app.use('/order',orderRouter);
 app.use('/kategory',kategotyRouter);
 
 

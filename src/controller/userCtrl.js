@@ -99,7 +99,7 @@ const userCtrl = {
                     delete req.body.password
                 }
 
-                const updateUser =await Users.findByIdAndUpdate(id,req.body,{new:true})
+                const updateUser = await Users.findByIdAndUpdate(id,req.body,{new:true})
 
                 return res.status(200).send({massage:"User update seccessfully",user:updateUser})
                 
