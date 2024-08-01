@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        required:true
+        default: ''
     },
     briyhdayDay: {
         type:Date,
